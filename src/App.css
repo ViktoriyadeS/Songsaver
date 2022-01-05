@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+.page-header{
+    background-color: darkblue;
+    color: darkorange;
+    margin: 0;
+    text-align: center;
+    padding: 30px;
+}
+.song-form{
+    display: flex;
+    background-color: darkblue;
+    padding: 10px;
+    justify-content: space-between;
+}
+.add-btn{
+   width: 10%;
+    border-radius: 20px;
+    border: 2px white solid;
+    background-color: darkorange;
+    color: white;
+}
+.filter{
+    width: 100%;
+    padding-bottom: 15px;
+    background-color: darkblue;
+    align-items: center;
+    
+}
+.filter label{
+    color: white;
+    padding: 25px;
+}
+.input-selection{
+    width: 20%;
+    border: 2px solid darkorange;
+    border-radius: 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.list{
+    width: 100%;
+    background-color: darkorange;
+    border: 1px solid white;
+}
+.song-table{
+    width: 200px;
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.song-row__item{
+    width: 200px;
+    text-align: center;
+    border-left: 1px dotted darkorange;
 }
