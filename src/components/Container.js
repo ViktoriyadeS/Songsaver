@@ -9,22 +9,7 @@ class Container extends Component {
   constructor() {
     super();
     this.state = {
-      songs: [
-        {
-          id: 1,
-          song: "My Song",
-          artist: "Artist artist",
-          genre: "Blues",
-          rating: 5,
-        },
-        {
-          id: 2,
-          song: "My Song 2",
-          artist: "Artist 2 artist",
-          genre: "Pop",
-          rating: 4,
-        },
-      ],
+      songs: [],
       input: {},
     };
     this.handleChange = this.handleChange.bind(this);
@@ -57,9 +42,24 @@ class Container extends Component {
       ],
     });
   };
-  handleFilter(event) {
-    console.log(`selected option: ${event.target.value}`);
-  }
+  handleFilter = (event) => {
+    const list = [...this.state.songs];
+    if (event.target.value !== "") {
+      function compareNames(a, b) {
+        if (a[event.target.value] < b[event.target.value]) {
+          return -1;
+        }
+        if (a[event.target.value] > b[event.target.value]) {
+          return 1;
+        }
+        return 0;
+      }
+      const newList = list.sort(compareNames);
+      this.setState({
+        songs: newList,
+      });
+    }
+  };
   render() {
     return (
       <div>
