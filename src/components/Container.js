@@ -3,22 +3,26 @@ import SongForm from "./SongForm";
 import PlayList from "./PlayList";
 import TableHeader from "./TableHeader";
 import PageHeader from "./PageHeader";
+import Sort from "./Sort";
 import Filter from "./Filter";
+import songsList from "../songList";
 
 class Container extends Component {
   constructor() {
     super();
     this.state = {
-      songs: [],
+      songs: songsList,
       input: {},
+      filter: "",
     };
     this.handleChange = this.handleChange.bind(this);
     this.addSong = this.addSong.bind(this);
+    this.handleSortFilter = this.handleSortFilter.bind(this);
+    this.handleClearList = this.handleClearList.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
   }
 
   handleChange = (event) => {
-    console.log(`I'm changed ${event.target.name} & ${event.target.value}`);
     this.setState({
       input: {
         ...this.state.input,
@@ -42,32 +46,46 @@ class Container extends Component {
       ],
     });
   };
-  handleFilter = (event) => {
+  handleSortFilter = (event) => {
     const list = [...this.state.songs];
     if (event.target.value !== "") {
-      function compareNames(a, b) {
+      const compareNames = (a, b) => {
         if (a[event.target.value] < b[event.target.value]) {
           return -1;
-        }
-        if (a[event.target.value] > b[event.target.value]) {
+        } else if (a[event.target.value] > b[event.target.value]) {
           return 1;
-        }
-        return 0;
-      }
+        } else return 0;
+      };
       const newList = list.sort(compareNames);
       this.setState({
         songs: newList,
       });
     }
   };
+  handleClearList = () => {
+    this.setState({
+      songs: [],
+    });
+  };
+
+  handleFilter = (event) => {
+    event.target.value !== "showAll"
+      ? this.setState({ filter: event.target.value })
+      : this.setState({ filter: "" });
+  };
   render() {
     return (
       <div>
         <PageHeader />
         <SongForm addSong={this.addSong} handleChange={this.handleChange} />
+        <Sort
+          handleSortFilter={this.handleSortFilter}
+          clearList={this.handleClearList}
+        />
+
         <Filter handleFilter={this.handleFilter} />
         <TableHeader />
-        <PlayList songs={this.state.songs} />
+        <PlayList songs={this.state.songs} filterBy={this.state.filter} />
       </div>
     );
   }

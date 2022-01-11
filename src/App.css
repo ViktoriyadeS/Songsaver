@@ -1,9 +1,10 @@
 .page-header{
     background-color: darkblue;
-    color: darkorange;
+    color: #ff5000;
     margin: 0;
     text-align: center;
     padding: 30px;
+    letter-spacing: 20px;
 }
 .song-form{
     display: flex;
@@ -13,40 +14,108 @@
 }
 .add-btn{
    width: 10%;
-    border-radius: 20px;
-    border: 2px white solid;
-    background-color: darkorange;
-    color: white;
+    
+   display: inline-block;
+   outline: none;
+   cursor: pointer;
+   font-weight: 600;
+   border-radius: 3px;
+   padding: 6px 12px;
+   border: 0;
+   color: #000021;
+   background: #1de9b6;
+   line-height: 1.15;
+   font-size: 16px;
 }
-.filter{
+.add-btn:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
+}
+.filters{
     width: 100%;
-    padding-bottom: 15px;
+    display: flex;
+    justify-content:center;
+    padding: 5px;
     background-color: darkblue;
     align-items: center;
     
 }
-.filter label{
-    color: white;
-    padding: 25px;
+
+.delete-btn{
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    margin-left: 15px;
+    padding: 6px 24px;
+    border: 0;
+    color: #fff;
+    background: #ff5000;
+    line-height: 1.15;
+    font-size: 16px;
+}
+.delete-btn:hover {
+    transition: all .1s ease;
+    box-shadow: 0 0 0 0 #fff, 0 0 0 3px #ff5000;
 }
 .input-selection{
     width: 20%;
-    border: 2px solid darkorange;
-    border-radius: 10px;
+    border: 2px solid #ff5000;
+    border-radius: 3px;
 }
+.main{
+    display: flex;
+    flex-direction: row;
 
+}
+.filter{
+    box-sizing:border-box;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding-right: 20px;
+    padding-left: 20px;
+    border: 3px solid #ff5000;
+    align-items: center;
+    justify-content: space-between;
+    
+    
+}
+.filter > h2{
+    font-size: 16px;
+}
+.filter > label{
+    font-size: 14px;
+}
 .list{
     width: 100%;
-    background-color: darkorange;
+    background-color: #ff5000;
     border: 1px solid white;
 }
 .song-table{
     width: 200px;
     text-align: center;
 }
-
+.song-header{
+    max-height: 40px;
+    background-color: darkblue;
+    color: white;
+}
+.vertical-line{
+    height: 100%;
+    width: 3px;
+    background-color: #ff5000;
+    border: 1px solid #ff5000;
+}
 .song-row__item{
     width: 200px;
+   
     text-align: center;
-    border-left: 1px dotted darkorange;
+    border-left: 1px dotted #ff5000;
+}
+.hidden-item{
+    visibility: hidden;
 }

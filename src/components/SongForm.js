@@ -24,7 +24,7 @@ function SongForm(props) {
         <option value="blues">Blues</option>
         <option value="rock">Rock</option>
         <option value="jazz">Jazz</option>
-        <option value="other">Other</option>
+        <option value="latin">Latin</option>
       </select>
       <select name="rating" onChange={props.handleChange} className="input-selection">
         <option>-- Select rating --</option>
