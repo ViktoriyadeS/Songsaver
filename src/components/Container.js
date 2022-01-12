@@ -4,7 +4,6 @@ import PlayList from "./PlayList";
 import TableHeader from "./TableHeader";
 import PageHeader from "./PageHeader";
 import Sort from "./Sort";
-import Filter from "./Filter";
 import songsList from "../songList";
 
 class Container extends Component {
@@ -17,7 +16,7 @@ class Container extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.addSong = this.addSong.bind(this);
-    this.handleSortFilter = this.handleSortFilter.bind(this);
+    this.handleSort = this.handleSort.bind(this);
     this.handleClearList = this.handleClearList.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
   }
@@ -46,7 +45,7 @@ class Container extends Component {
       ],
     });
   };
-  handleSortFilter = (event) => {
+  handleSort = (event) => {
     const list = [...this.state.songs];
     if (event.target.value !== "") {
       const compareNames = (a, b) => {
@@ -69,7 +68,7 @@ class Container extends Component {
   };
 
   handleFilter = (event) => {
-    event.target.value !== "showAll"
+    event.target.value !== ""
       ? this.setState({ filter: event.target.value })
       : this.setState({ filter: "" });
   };
@@ -79,11 +78,11 @@ class Container extends Component {
         <PageHeader />
         <SongForm addSong={this.addSong} handleChange={this.handleChange} />
         <Sort
-          handleSortFilter={this.handleSortFilter}
+          handleSort={this.handleSort}
+          handleFilter={this.handleFilter}
           clearList={this.handleClearList}
         />
 
-        <Filter handleFilter={this.handleFilter} />
         <TableHeader />
         <PlayList songs={this.state.songs} filterBy={this.state.filter} />
       </div>
