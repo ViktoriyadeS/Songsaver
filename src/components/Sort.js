@@ -14,7 +14,7 @@ function Sort(props) {
       
       <select name="genre" onChange={props.handleFilter} >
         <option>Filter genre:</option>
-        <option value="">Shaw all</option>
+        <option value="">Show all</option>
         <option value="pop">Pop</option>
         <option value="blues">Blues</option>
         <option value="rock">Rock</option>
@@ -25,7 +25,7 @@ function Sort(props) {
      
       <select name="rating" onChange={props.handleFilter} >
         <option>Filter rating:</option>
-        <option value="">Shaw all</option>
+        <option value="">Show all</option>
         <option value="5">5</option>
         <option value="4">4</option>
         <option value="3">3</option>
