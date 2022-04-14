@@ -28,7 +28,7 @@ function SongForm(props) {
       </select>
       <select name="rating" onChange={props.handleChange} className="input-selection">
         <option>-- Select rating --</option>
-        <option value="5">5</option>
+        <option value="5a">5</option>
         <option value="4">4</option>
         <option value="3">3</option>
         <option value="2">2</option>
